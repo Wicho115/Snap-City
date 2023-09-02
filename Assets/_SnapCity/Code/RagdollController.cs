@@ -8,6 +8,8 @@ public class RagdollController : MonoBehaviour
     public Collider mainCollider;
     public Rigidbody mainRigidbody;
 
+    public ParticleSystem deathEffect;
+
     public List<Rigidbody> rigidbodies;
     public List<Collider> colliders;
     // Start is called before the first frame update
@@ -42,7 +44,7 @@ public class RagdollController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            ///Toggle();
+            Toggle();
          //   mainCollider.enabled = false;
         }
 
@@ -67,6 +69,7 @@ public class RagdollController : MonoBehaviour
         mainCollider.enabled = value;
         animator.enabled = value;
         mainRigidbody.isKinematic = true;
+        deathEffect.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -74,6 +77,7 @@ public class RagdollController : MonoBehaviour
         if(collision.transform.tag == "Player")
         {
             value = true;
+            
             Toggle();
         }
     }
