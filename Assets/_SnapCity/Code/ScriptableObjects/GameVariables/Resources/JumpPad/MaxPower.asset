@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56279961a8a3e5d4593b48c3401767ab, type: 3}
   m_Name: MaxPower
   m_EditorClassIdentifier: 
-  _value: 1.5
+  _value: 5

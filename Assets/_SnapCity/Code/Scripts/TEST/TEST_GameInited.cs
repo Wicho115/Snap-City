@@ -9,7 +9,7 @@ public class TEST_GameInited : MonoBehaviour
     [SerializeField] private GameEvent _gameInitEvent;
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(5);
         _gameInitEvent.Raise();
     }
 }
