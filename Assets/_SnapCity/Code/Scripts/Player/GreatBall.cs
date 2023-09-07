@@ -16,9 +16,11 @@ public class GreatBall : MonoBehaviour
     [SerializeField] private FloatVariable _maxTime;
     [SerializeField] private AnimationCurve _verticalVel;
     private float _currentTime;
+    private GameManager gameManager;
 
     public void Shoot()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _shootCoroutine = StartCoroutine(ShootCor());
     }
 
@@ -53,7 +55,7 @@ public class GreatBall : MonoBehaviour
         _currentTime += Time.fixedDeltaTime;
         var x = _verticalVel.Evaluate(_currentTime / _maxTime.Value);
         //TEMRINAR EL JUEGO
-        if (x <= 0) Debug.Log("Termino el juego");
+        if (x <= 0) gameManager.GameOver();
         
         angularVelocity.x = x;
     }

@@ -12,6 +12,7 @@ public class RagdollController : MonoBehaviour
 
     public List<Rigidbody> rigidbodies;
     public List<Collider> colliders;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +45,7 @@ public class RagdollController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Toggle();
+           // Toggle();
          //   mainCollider.enabled = false;
         }
 
@@ -70,6 +71,7 @@ public class RagdollController : MonoBehaviour
         animator.enabled = value;
         mainRigidbody.isKinematic = true;
         deathEffect.Play();
+        GameObject.Find("GameManager").GetComponent<GameManager>().score += 5;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,6 +81,8 @@ public class RagdollController : MonoBehaviour
             value = true;
             
             Toggle();
+            
+            
         }
     }
    
